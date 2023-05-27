@@ -1,0 +1,33 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
+
+.validacion-estado{
+    position: absolute;
+    right: 10px;
+    bottom: 6px;
+    z-index: 100;
+    font-size: 16px;
+    color: #1ed12d;
+    opacity: 0;
+}
+.mensaje-error{
+    display: none;
+}
+.mensaje-error-activo{
+    display: block;
+}
+.mensaje-exito{
+    display: none;
+}
+.mensaje-exito-activo{
+    display: block;
+}
+.correcto .validacion-estado{
+    opacity: 1;
+}
+.incorrecto .validacion-estado{
+    color: #bb2929;
+    opacity: 1;
+}
+.incorrecto .form_label{
+    color: #bb2929;
+}

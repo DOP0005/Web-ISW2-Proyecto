@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{%  load static  %}
+    
+    
+    {% block content %}
+        <div class="container-fluid row d-flex h-100 text-center mt-5 mb-5 d-flex m-0">
+            <div id="demo" class="col carousel slide pt-5 p-3 col" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="3000">
+                        <img src="{% static "imagenes/1.jpg" %}" alt="img1" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2500">
+                        <img src="{% static "imagenes/2.jpg" %}" alt="img2" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2500">
+                        <img src="{% static "imagenes/3.jpg" %}" alt="img3" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2500">
+                        <img src="{% static "imagenes/4.jpg" %}" alt="img4" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2500">
+                        <img src="{% static "imagenes/5.png" %}" alt="img5" class="d-block w-100">
+                    </div>
+                </div> 
+                <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+                <section class="col w-50 mx-auto text-center pt-5 text-dark">
+                <h1 class="p-3 fs-1 border-3 ">
+                    Inicio
+                </h1>
+                <p class="fs-3">La salud no es solamente la ausencia de enfermedades sino la resultante de un complejo proceso donde interactúan
+                    factores biológicos, económicos, sociales, políticos y ambientales en la generación de las condiciones que 
+                    permiten el desarrollo pleno de las capacidades y potencialidades humanas, entendiendo al hombre como un ser 
+                    individual y social. <br><span class="text-primary">(Davini, Gellon De Salluzi, Rossi 1968).</span></p>
+            </section>
+            
+        </div>
+    {% endblock %}
+    

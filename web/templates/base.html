@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    {% comment %} {% block css %} {% endcomment %}
+
+    <title> {% block title %} {% endblock %} </title>
+</head>
+<body class="container-fluid">
+        <nav class="navbar navbar-dark" style="background-color: #332D2D;">
+            <div class="container dropdown">
+                <span class="navbar-brand">Salud Mental Online </span>
+                <ul class="nav nav-pills ms-auto">
+                    {% if perms.web.add_usuario or perms.web.view_usuario %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-light dropdown-toggle" data-bs-toggle="dropdown" href="#" >Usuario <i class="bi bi-person"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-dark" style="background-color: #332D2D;">
+                            {% if perms.web.add_usuario %}
+                            <li><a class="dropdown-item text-light text-center" href="{% url 'crear_usuario' %}"><i class="bi bi-make_list"></i> Crear Usuario</a></li>
+                            {% endif %}
+                            {% if perms.web.view_usuario%}
+                            <li><a class="dropdown-item text-light text-center" href="{% url 'usuarios' %}"><i class="bi bi-make_list"></i> Listado de Usuario</a></li>
+                            {% endif %}
+                            {% comment %} <li><a class="dropdown-item text-light text-center" href="#"><i class="bi bi-trash3"></i> Eliminar Usuario</a></li>
+                            <li><a class="dropdown-item text-light text-center" href="/modificar_usuario"><i class="bi bi-pencil"></i> Modificar Usuario</a></li> {% endcomment %}
+                        </ul>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-light dropdown-toggle" data-bs-toggle="dropdown" href="#" >Cita <i class="bi bi-bookmark-plus"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-dark" style="background-color: #332D2D;">
+
+                            {% if perms.web.add_cita %}
+                            <li><a class="dropdown-item text-light text-center" href="{% url 'crear_cita' %}"><i class="bi bi-vector-pen"></i> Crear Cita</a></li>
+                            {% endif %}
+                            
+                            
+                            <li><a class="dropdown-item text-light text-center" href="{% url 'citas' %}"><i class="bi bi-make_list"></i> Listado de Citas</a></li>
+                            
+
+                            {% comment %} <li><a class="dropdown-item text-light text-center" href="#"><i class="bi bi-trash3"></i> Eliminar Cita</a></li>
+                            <li><a class="dropdown-item text-light text-center" href="#"><i class="bi bi-pencil"></i> Modificar Cita</a></li> {% endcomment %}
+                        </ul>
+                    </li>
+                    {% comment %} <li class="nav-item dropdown">
+                        <a class="nav-link text-light dropdown-toggle" data-bs-toggle="dropdown" href="#"> Entrevista <i class="bi bi-pencil-square"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-dark" style="background-color: #332D2D;">
+                            <li><a class="dropdown-item text-light text-center" href="#"><i class="bi bi-vector-pen"></i> Crear Entrevista</a></li>
+                            <li><a class="dropdown-item text-light text-center" href="#"><i class="bi bi-trash3"></i> Eliminar Entrevista</a></li>
+                            <li><a class="dropdown-item text-light text-center" href="#"><i class="bi bi-pencil"></i> Modificar Entrevista</a></li>
+                        </ul>
+                    </li> {% endcomment %}
+                    {% if perms.web.add_historia_clinica %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-light dropdown-toggle" data-bs-toggle="dropdown" href="#" >Historia Clínica <i class="bi bi-book"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-dark" style="background-color: #332D2D;">
+
+                            {% if perms.web.add_historia_clinica %}
+                            <li><a class="dropdown-item text-light text-center" href="{% url 'crear_historiaClinica' %}"><i class="bi bi-vector-pen"></i> Crear Historia Clínica</a></li>
+                            {% endif %}
+                            
+                            {% if perms.web.view_historia_clinica %}
+                            <li><a class="dropdown-item text-light text-center" href="{% url 'historiaClinicas' %}"></i> Historias Clínica</a></li>
+                            {% endif%}
+                            
+                            {% comment %} <li><a class="dropdown-item text-light text-center" href="#"><i class="bi bi-pencil"></i> Modificar Historia Clínica</a></li> {% endcomment %}
+                        </ul>
+                    </li>
+                    {% endif %}
+
+                    {% if user.is_authenticated %}
+                        <li>
+                            <a class="btn btn-outline-primary text-light" href="{% url 'logout' %}">Cerrar Sesión</a>
+                        </li>
+                        {% comment %} <li>
+                            <a href="#">{ user.username }</a>
+                        </li>  {% endcomment %}
+                    {% else %}
+                        <li>
+                            <a class="btn btn-outline-primary me-3 text-light" href="{% url 'login' %}">Iniciar Sesión</a>  
+                        </li>
+                        <br>
+                        
+                        <li>
+                            <a class="btn btn-outline-primary me-3 text-light" href="{% url 'registro' %}">Registrate</a>  
+                        </li>
+                    {% endif %}
+
+
+
+                    {% comment %} <button type="button" class="btn btn-outline-primary me-3"><a href="{% url 'login' %}" class="text-light">Iniciar Sesión</a>  <i class="bi bi-person-circle text-light"></i></button>
+                    
+                    <button type="button" class="btn btn-outline-primary me-3"><a href="#" class="text-light">Registrarse</a>  <i class="bi bi-key text-light"></i></button>  {% endcomment %}
+                    
+                    
+                </ul>
+            </div>
+        </nav>
+            <div class="container-fluid mb-5 mt-5">
+                <div class="container-fluid">
+                    {% block content %}
+                    {%endblock%} 
+                </div>
+            </div>
+        <footer class="footer fixed-bottom" style="background-color: #332D2D; ">
+            <div class="">
+                <div class=" d-flex align-items-center justify-content-center justify-content-md-between py-3">
+                    <p class="text-light">Salud Mental Online</p>
+                    <div class="col-md-3 mb-2 mb-md-0">
+                        <a href="/" class="d-inline-flex link-body-emphasis">
+                        <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+                        </a>
+                    </div>
+                    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                        <li><a href="{% url 'index' %}" class="nav-link px-2 text-light">Inicio <i class="bi bi-house-door"></i></a></li>
+                        <li><a href="#" class="nav-link px-2 text-light">Contáctanos <i class="bi bi-envelope-at"></i></a></li>
+                        <li><a href="#" class="nav-link px-2 text-light">¿Quienes somos? <i class="bi bi-question-square"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+
+</body>
+</html>

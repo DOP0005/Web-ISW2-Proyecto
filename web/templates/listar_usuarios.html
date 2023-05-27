@@ -1,0 +1,90 @@
+
+
+{% extends 'base.html' %} 
+{% block title %} Listado de Citas {% endblock %}
+{% block content %}
+<h1>Listado de Citas</h1>
+
+
+    <div class="table table-responsive"></div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Telefono</th>
+                    
+                    <th colspan="2">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for c in usuarios %}
+                <tr>
+                    <td>{{ c.usuario }}</td>
+                    <td>{{ c.nombre }}</td>
+                    <td>{{ c.apellidos }}</td>
+                    <td>{{ c.correo }}</td>
+                    <td>{{ c.telefono }}</td>
+                    
+                    {% if perms.web.change_usuario %}
+                    <td><a href="{% url 'editar_usuario' c.usuario %}" class="btn btn-info" >Editar</a></td>
+                    {% endif %}
+                    
+                    {% if perms.web.delete_usuario %}
+                    <td><a href="{% url 'eliminar_usuario' c.usuario %}" class="btn btn-danger" >Eliminar</a></td>
+                    {% endif %}
+                
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    
+    
+
+
+{% endblock %}
+
+
+
+{% comment %} 
+
+{% extends 'base.html' %} 
+{% block title %} Listado de Usuarios {% endblock %}
+{% block content %}
+<h1>Listado de Usuarios</h1>
+
+
+    <div class="table table-responsive"></div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Correo</th>
+                    <th>Telefono</th>
+                    <th colspan="2">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for u in usuarios %}
+                <tr>
+                    <td>{{ u.nombre }}</td>
+                    <td>{{ u.apellidos }}</td>
+                    <td>{{ u.correo }}</td>
+                    <td>{{ u.telefono }}</td>
+                    <td><a href="{% url 'editar_usuario' u.usuario %}" class="btn btn-info" >Editar</a></td>
+                    <td><a href="{% url 'eliminar_usuario' u.usuario %}" class="btn btn-danger" >Eliminar</a></td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    
+    
+
+
+{% endblock %} {% endcomment %}

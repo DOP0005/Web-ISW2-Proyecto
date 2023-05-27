@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!--Formulario-->
+    <form id="formulario" class="mt-5">
+        <div class="container-fluid justify-content-center align-items-center">
+            <div class="container div-config mb-4 d-flex justify-content-center align-items-center rounded-1 bg-body-secondary" style="border: 1px solid #000;">
+                Doc: Geraldo Montes Bernal  <i class="bi bi-person-circle p-4 lh-4" style="font-size: 2rem;"></i> 
+                <li class="dropdown" style="list-style-type:none">
+                    <a class="text-dark dropdown-toggle" data-bs-toggle="dropdown" href="#" ><i class="bi bi-gear-fill"></i></a>
+                    <ul class="dropdown-menu bg-body-secondary" style="background-color: #332D2D;">
+                        <li><a class="dropdown-item text-dark text-center" href="login.html">Cambiar Usuario <i class="bi bi-person-fill"></i></a></li>
+                        <li><a class="dropdown-item text-dark text-center" href="/index.html"> Salir <i class="bi bi-house-door-fill"></i></a></li>
+                    </ul>
+                </li>
+            </div>
+            <div class="container mb-4 d-flex justify-content-center align-items-center rounded-1 bg-body-secondary" style="border: 1px solid #000;">
+                <i class="bi bi-pencil-square p-2 lh-4" style="font-size: 2rem;"></i>
+                Modificar Usuario
+            </div>
+            <div class="container mb-4 rounded-1 p-5 bg-body-secondary" style="border: 1px solid #000;">
+                <div class="mb-4 fs-3 fw-bold text-center">
+                    Ingrese los datos a modificar:
+                </div>
+                <!--Contenedor de nombres-->
+                <div class="mb-4 d-flex">
+                    <div class="container-fluid mb-4 text-center input-group" id="div-nombre1">
+                        <i class="bg-info bi bi-person input-group-text" style="font-size: 1.5rem;"></i>
+                        <input type="text" id="nombre1" name="nombre1" class="inputs form-control border-3" placeholder="Nombre Viejo">
+                        <i class="validacion-estado icon bi bi-x-circle-fill" style="font-size: 1.1rem;"></i>
+                    </div>
+                    <div class="container-fluid mb-4 text-center input-group" id="div-nombre2">
+                        <i class="bg-info bi bi-person input-group-text" style="font-size: 1.5rem;"></i>
+                        <input type="text" id="nombre2" name="nombre2" class="inputs form-control border-3" placeholder="Nombre Nuevo">
+                        <i class="validacion-estado icon bi bi-x-circle-fill" style="font-size: 1.1rem;"></i>
+                    </div>
+                </div>
+                <!--Contenedor de apellidos-->
+                <div class="mb-4 d-flex">
+                    <div class="container-fluid mb-4 text-center input-group" id="div-apellido1">
+                        <i class="bg-info bi bi-person input-group-text" style="font-size: 1.5rem;"></i>
+                        <input type="text" id="apellido1" name="apellido1" class="inputs form-control border-3" placeholder="Apellidos Viejos">
+                        <i class="validacion-estado icon bi bi-x-circle-fill" style="font-size: 1.1rem;"></i>
+                    </div>
+                    <div class="container-fluid mb-4 text-center input-group" id="div-apellido2">
+                        <i class="bg-info bi bi-person input-group-text" style="font-size: 1.5rem;"></i>
+                        <input type="text" id="apellido2" name="apellido2" class="inputs form-control border-3" placeholder="Apellidos Nuevos">
+                        <i class="validacion-estado icon bi bi-x-circle-fill" style="font-size: 1.1rem;"></i>
+                    </div>
+                </div>
+                <!--Contenedor de correos-->
+                <div class="mb-4 d-flex">
+                    <div class="container-fluid mb-4 text-center input-group" id="div-correo1">
+                        <i class="bg-info bi bi-envelope-at input-group-text" style="font-size: 1.5rem;"></i>
+                        <input type="text" id="correo1" name="correo1" class="inputs form-control border-3" placeholder="Correo Viejo">
+                        <i class="validacion-estado icon bi bi-x-circle-fill" style="font-size: 1.1rem;"></i>
+                    </div>
+                    <div class="container-fluid mb-4 text-center input-group" id="div-correo2">
+                        <i class="bg-info bi bi-envelope-at input-group-text" style="font-size: 1.5rem;"></i>
+                        <input type="email" id="correo2" name="correo2" class="inputs form-control border-3" placeholder="Correo Nuevo">
+                        <i class="validacion-estado icon bi bi-x-circle-fill" style="font-size: 1.1rem;"></i>
+                    </div>
+                </div>
+                <!--Contenedor de password-->
+                <div class="mb-4 d-flex">
+                    <div class="container-fluid mb-4 text-center input-group" id="div-password1">
+                        <i class="bg-info bi bi-key input-group-text" style="font-size: 1.5rem;"></i>
+                        <input type="password" id="password1" name="password1" class="inputs form-control border-3" placeholder="Contraseña Vieja">
+                        <i class="validacion-estado icon bi bi-x-circle-fill" style="font-size: 1.1rem;"></i>
+                    </div>
+                    <div class="container-fluid mb-4 text-center input-group" id="div-password2">
+                        <i class="bg-info bi bi-key input-group-text" style="font-size: 1.5rem;"></i>
+                        <input type="password" id="password2" name="password2" class="inputs form-control border-3" placeholder="Contraseña Nueva">
+                        <i class="validacion-estado icon bi bi-x-circle-fill" style="font-size: 1.1rem;"></i>
+                    </div>
+                </div>
+                <!--Contenedor de telefono-->
+                <div class="container mb-4 input-group w-50" id="div-telefono">
+                    <i class="bg-info bi bi-telephone input-group-text" style="font-size: 1.5rem;"></i>
+                    <input type="tel" id="telefono" name="telefono" class="inputs form-control border-3" placeholder="Telefono">
+                    <i class="validacion-estado icon bi bi-x-circle-fill" style="font-size: 1.1rem;"></i>
+                </div>
+                <div class="container mensaje-error text-center w-50 mb-4" id="mensaje-error">
+                    <p class="error bg-danger text-light rounded-2 fs-5"><i class="bi bi-exclamation-triangle" style="font-size: 1.5rem;"></i><b class="text-light fs-5"> Error:</b> Por favor rellene todos los campos.
+                    </p>
+                </div>
+                <!--Contenedor de botones-->
+                <div class="container-fluid mb-1">
+                    <div class="container-fluid mb-1 d-flex">
+                        <div class="container-fluid mb-4 d-flex justify-content-center">
+                            <button type="reset" class="btn btn-outline-danger fs-5"> Cancelar</button>
+                        </div>
+                        <div class="container-fluid mb-4 d-flex justify-content-center">
+                            <button type="submit" class="btn btn-outline-success fs-5">Guardar Cambios</button>
+                        </div>
+                    </div>
+                    <p class="mensaje-exito text-center text-success fs-5" id="mensaje-exito">¡Cambios realizados con exito!</p>
+                </div>
+                
+            </div>
+        </div>
+    </form>
+    {% endblock %}

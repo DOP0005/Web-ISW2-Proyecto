@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %} Iniciar Sesion {% endblock %}
+{% comment %} {% block css %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css" />
+    {% endblock %} {% endcomment %}
+
+{% block content %}
+    
+    <!--Formulario-->
+    <main class="form-signin m-auto" style="margin: auto;">
+        <form action="" id="formulario" class="bg-body-secondary p-4 rounded-5 mt-5 mb-3 block-co mx-auto " style="width: 25rem;">
+            <div class="text-center">
+                <i class="bi bi-person-circle" style="font-size: 9rem;"></i>
+            </div>
+            <div class="text-center fs-1 fw-bold">
+                Iniciar Sesión
+            </div>
+            <!--Contenedor usuario-->
+            <div class="mb-1 text-center input-group mt-4" id="div-usuario">
+                <div class="input-group-text bg-primary">
+                    <i class="bi bi-person-circle" style="font-size: 1.5rem;"></i>
+                </div>
+                <input type="text" id="usuario" name="usuario" class="inputs form-control bg-light border-3" placeholder="Usuario">
+                <i class="validacion-estado icon bi bi-x-circle-fill" style="font-size: 1.5rem;"></i>
+            </div>
+            <!--Contenedor password-->
+            <div class="mb-4 text-center input-group mt-3" id="div-password">
+                <div class="input-group-text bg-primary">
+                    <i class="bi bi-key-fill" style="font-size: 1.5rem;"></i>
+                </div>
+                <input type="password" id="password" name="password" class="inputs form-control bg-light border-3" placeholder="Contraseña">
+                <i class="validacion-estado icon bi bi-x-circle-fill" style="font-size: 1.5rem;"></i>
+            </div>
+            <!--Contenedor checkbox-->
+            <div class="mb-4 form-check text-center d-flex align-items-center justify-content-center">
+                <input type="checkbox" id="connected" class="form-check-input border-dark">
+                <label for="connected" class="form-check-label">Recuérdame</label>
+            </div>
+            <div class="mb-3 text-center">
+                ¿No tienes cuenta?<a href="#"> Registrarse</a>
+            </div>
+            <div class="mensaje-error text-center" id="mensaje-error">
+                <p class="bg-danger text-light rounded-2"><i class="bi bi-exclamation-triangle" style="font-size: 1.5rem;"></i><b class="text-light fs-5"> Error:</b> Por favor rellene todos los campos.
+                </p>
+            </div>
+            <!--Contenedor boton-->
+            <div class="d-grid p-4">
+                <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+            </div>
+            <p class="mensaje-exito text-center text-success mb-auto fs-5" id="mensaje-exito">Redirigiendo..</p>
+        </form>
+    </main>
+   {%endblock%}

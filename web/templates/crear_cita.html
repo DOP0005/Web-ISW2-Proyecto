@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block title %}Crear Cita{% endblock %}
+
+{% block content %}
+    <!--Formulario-->
+
+        <div class="container mb-4">
+            <div class="container mb-2 text-center">
+                <i class="bi bi-pencil-square p-3" style="font-size: 8rem;"></i>
+            </div>
+            <div class="mb-4 d-flex justify-content-center align-items-center text-center fs-1 fw-bold">
+                <p class="p-4 rounded-4 w-50" style="border: 1px solid black;"> Crear Cita</p>
+            </div>
+        </div>
+        {% include 'form.html' %}
+
+
+{%endblock%}
+
+        
+        
+    
+    {% comment %} <form action="" class="mt-5 mb-4" id="formulario">
+        <div class="container mb-4 bg-body-secondary rounded-5" style="border: 1px solid #000;">
+            <div class="container mb-4">
+                <div class="container mb-2 text-center">
+                    <i class="bi bi-pencil-square p-3" style="font-size: 8rem;"></i>
+                </div>
+                <div class="mb-4 d-flex justify-content-center align-items-center text-center fs-1 fw-bold"">
+                    <p class="p-4 rounded-4 w-50" style="border: 1px solid black;"> Crear Cita</p>
+                </div>
+            </div>
+            <!--Contenedor de nombre-->
+            <div class="container mb-4 mt-5 text-center" id="div-nombre">
+                <label class="form_label form-label fs-5 fw-medium" for="nombre"> Nombre del Paciente</label>
+                <div class="container input-group w-50">
+                    <i class="bg-info bi bi-person-fill input-group-text" style="font-size: 1.5rem;"></i>
+                    <input type="text" id="nombre" name="nombre" class="form-control border-3" placeholder="Guillermo">
+                    <i class="validacion-estado icon bi bi-x-circle-fill" style="font-size: 20px;"></i>
+                </div>
+            </div>
+            <!--Contenedor de fecha-->
+            <div class="container mb-4 mt-5 text-center" id="div-fecha">
+                <label class="form_label form-label fs-5 fw-medium" for="fecha"> Seleccione la fecha</label>
+                <div class="container input-group w-50">
+                    <i class="bg-info bi bi-person-fill input-group-text" style="font-size: 1.5rem;"></i>
+                    <input type="date" id="fecha" name="fecha" class="form-control border-3 " required>
+                </div>
+            </div>
+            <div class="container mensaje-error text-center w-50 mb-4 mt-5" id="mensaje-error">
+                <p class="error bg-danger text-light rounded-2 fs-5"><i class="bi bi-exclamation-triangle" style="font-size: 25px;"></i><b class="text-light fs-5"> Error:</b> Por favor rellene todos los campos.
+                </p>
+            </div>
+            <!--Contenedor de botones-->
+            <div class="container-fluid mb-4 mt-5 p-4">
+                <div class="container-fluid mb-1 d-flex">
+                    <div class="container-fluid mb-4 d-flex justify-content-center">
+                        <button type="reset" class="btn btn-outline-danger fs-5">Cancelar</button>
+                    </div>
+                    <div class="container-fluid mb-4 d-flex justify-content-center">
+                        <button type="submit" class="btn btn-outline-success fs-5">Crear Cita</button>
+                    </div>
+                </div>
+                <p class="mensaje-exito text-center text-success fs-5 mb-auto mt-1" id="mensaje-exito">¡Cita creada con exito!</p>
+            </div>
+        </div>
+    </form> {% endcomment %}

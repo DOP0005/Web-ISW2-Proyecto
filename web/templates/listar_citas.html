@@ -1,0 +1,43 @@
+
+
+{% extends 'base.html' %} 
+{% block title %} Listado de Citas {% endblock %}
+{% block content %}
+<h1>Listado de Citas</h1>
+
+
+    <div class="table table-responsive"></div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Fecha</th>
+                    
+                    {% if perms.web.change_cita and perms.web.delete_cita %}
+                    <th colspan="2">Opciones</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for c in citas %}
+                <tr>
+                    <td>{{ c.usuario.nombre }}</td>
+                    <td>{{ c.fecha }}</td>
+
+                    {% if perms.web.change_cita %}
+                    <td><a href="{% url 'editar_cita' c.cita %}" class="btn btn-info" >Editar</a></td>
+                    {% endif %}
+
+                    {% if perms.web.delete_cita %}
+                    <td><a href="{% url 'eliminar_cita' c.cita %}" class="btn btn-danger" >Eliminar</a></td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    
+    
+
+
+{% endblock %}

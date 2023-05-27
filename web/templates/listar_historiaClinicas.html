@@ -1,0 +1,44 @@
+{% extends 'base.html' %} 
+{% block title %} Historias Clinicas {% endblock %}
+{% block content %}
+<h1>Listado de Historias Clínicas</h1>
+
+
+    <div class="table table-responsive"></div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Usuario</th>
+                    <th>Nombre de Historia Clínica</th>
+                    
+                    {% if perms.web.change_hitoria_clinica and perms.web.delete_historia_clinica%}
+                    <th colspan="2">Opciones</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for hc in historiaClinicas %}
+                <tr>
+                    <td>{{ hc.historiaClinica }}</td>
+                    <td>{{ hc.usuario.nombre }}</td>
+                    <td>{{ hc.nombreHC }}</td>
+                    
+
+                    {% if perms.web.change_hitoria_clinica %}
+                    <td><a href="{% url 'editar_historiaClinica' hc.historiaClinica %}" class="btn btn-info" >Editar</a></td>
+                    {% endif %}
+                    
+                    {% if perms.web.delete_historia_clinica %}
+                    <td><a href="{% url 'eliminar_historiaClinica' hc.historiaClinica %}" class="btn btn-danger" >Eliminar</a></td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    
+    
+
+
+{% endblock %}
